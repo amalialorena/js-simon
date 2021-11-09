@@ -10,7 +10,6 @@
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
     //confrontare i numeri dell'utente con i numeri generati dal pc
 
-console.log("ciao");
 const numbers = [];
 
 while (numbers.length < 5) {
@@ -30,7 +29,13 @@ while (numbers.length < 5) {
 console.log(numbers);
 
 let container = document.getElementById("container");
-container.innerHTML = `${numbers}`;
+let results = document.createElement("div");
+results.classList.add("results");
+let numContainer = document.createElement("div");
+numContainer.classList.add("num-container");
+container.append(numContainer);
+container.append(results);
+numContainer.innerHTML = `${numbers}`;
 
 setTimeout(myTimer,3000);
 
@@ -42,7 +47,7 @@ function myTimer(){
         userNumbers = parseInt(prompt("inserisci un numero"));
         userNumArr.push(userNumbers);
 
-        const guessedNumbers = [];
+    const guessedNumbers = [];
 
     for(let i = 0; i < userNumArr.length; i++){
         for(let j = 0; j < numbers.length; j++){
@@ -51,8 +56,9 @@ function myTimer(){
             }
         }
     }
-    console.log("guessed num", guessedNumbers)
-
+    console.log("guessed num", guessedNumbers);
+    results.innerText = `Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers} `
+        
     }
 }
 
