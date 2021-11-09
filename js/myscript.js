@@ -21,13 +21,12 @@ while (numbers.length < 5) {
            found = true;
         } 
     }
-        if (!found) {
-            numbers.push(randomNum);
-        }
+    if (!found) {
+        numbers.push(randomNum);
+    }
 }
 
-console.log(numbers);
-
+//nodi 
 let container = document.getElementById("container");
 let results = document.createElement("div");
 results.classList.add("results");
@@ -35,20 +34,32 @@ let numContainer = document.createElement("div");
 numContainer.classList.add("num-container");
 container.append(numContainer);
 container.append(results);
-numContainer.innerHTML = `${numbers}`;
+numContainer.innerHTML = `${numbers}`; 
 
+//variabili
+let userNumbers = "";
+const userNumArr = [];
+const guessedNumbers = [];
+
+//timer
 setTimeout(myTimer,3000);
 
+//funzioni
 function myTimer(){
+    enterNum();
+    resultsFunc();
+    console.log("guessed num", guessedNumbers);
+    results.innerText = `Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers} `
+}
 
-    let userNumbers = "";
-    const userNumArr = [];
+function enterNum() {
     for(let i = 0; i < 5; i++){
         userNumbers = parseInt(prompt("inserisci un numero"));
         userNumArr.push(userNumbers);
+    } 
+}
 
-    const guessedNumbers = [];
-
+function resultsFunc() {
     for(let i = 0; i < userNumArr.length; i++){
         for(let j = 0; j < numbers.length; j++){
              if (userNumArr[i] === numbers[j]){
@@ -56,10 +67,4 @@ function myTimer(){
             }
         }
     }
-    console.log("guessed num", guessedNumbers);
-    results.innerText = `Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers} `
-        
-    }
 }
-
-
