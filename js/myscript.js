@@ -9,3 +9,51 @@
     //estrapolare i valori del prompt
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
     //confrontare i numeri dell'utente con i numeri generati dal pc
+
+console.log("ciao");
+const numbers = [];
+
+while (numbers.length < 5) {
+    let randomNum = Math.floor(Math.random() * 100);
+    let found = false;
+
+    for(let i = 0; i < numbers.length; i++) {
+        if(randomNum === numbers[i]) {
+           found = true;
+        } 
+    }
+        if (!found) {
+            numbers.push(randomNum);
+        }
+}
+
+console.log(numbers);
+
+let container = document.getElementById("container");
+container.innerHTML = `${numbers}`;
+
+setTimeout(myTimer,3000);
+
+function myTimer(){
+
+    let userNumbers = "";
+    const userNumArr = [];
+    for(let i = 0; i < 5; i++){
+        userNumbers = parseInt(prompt("inserisci un numero"));
+        userNumArr.push(userNumbers);
+
+        const guessedNumbers = [];
+
+    for(let i = 0; i < userNumArr.length; i++){
+        for(let j = 0; j < numbers.length; j++){
+             if (userNumArr[i] === numbers[j]){
+            guessedNumbers.push(userNumArr[i]);
+            }
+        }
+    }
+    console.log("guessed num", guessedNumbers)
+
+    }
+}
+
+
