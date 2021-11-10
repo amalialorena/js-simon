@@ -47,39 +47,21 @@ setTimeout(myTimer,1000);
 //funzioni
 function myTimer(){
     enterNum();
-    resultsFunc();
-    console.log("guessed num", guessedNumbers);
-    results.innerText = `Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers} `
+    results.innerText = `Hai indovinato ${userNumArr.length} numeri: ${userNumArr} `
 }
 
 function enterNum() {
     for(let i = 0; i < 5; i++) {
         userNumbers = parseInt(prompt("inserisci un numero"));
-        userNumArr.push(userNumbers); 
-    } 
-}
-
-function resultsFunc() {
-    for(let i = 0; i < userNumArr.length; i++) {
-        let double = false;
-        for(let j = 0; j < numbers.length; j++) {
-             if (userNumArr[i] === numbers[j]){
-                 guessedNumbers.push(userNumArr[i]);
-            } 
-
-            // if (userNumArr[i] === userNumArr[j]) {
-            //     double = true;
-            // }
-
-            // if (double === false) {
-            //     guessedNumbers.push(userNumArr[i]);
-            // }
-
-            
-            
-    
+         
+        if (numbers.includes(userNumbers) && !userNumArr.includes(userNumbers)) {
+            userNumArr.push(userNumbers);
         }
-    }
-}
+       
+    } 
 
-// se il numero inserito dall'utente si ripete, lo pushamo solo una volta nell'array dei numeri indovinati
+}
+console.log("array nr utente", userNumArr)
+
+
+
