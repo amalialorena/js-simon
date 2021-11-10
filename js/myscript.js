@@ -42,7 +42,7 @@ const userNumArr = [];
 const guessedNumbers = [];
 
 //timer
-setTimeout(myTimer,3000);
+setTimeout(myTimer,1000);
 
 //funzioni
 function myTimer(){
@@ -53,18 +53,33 @@ function myTimer(){
 }
 
 function enterNum() {
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 5; i++) {
         userNumbers = parseInt(prompt("inserisci un numero"));
-        userNumArr.push(userNumbers);
+        userNumArr.push(userNumbers); 
     } 
 }
 
 function resultsFunc() {
-    for(let i = 0; i < userNumArr.length; i++){
-        for(let j = 0; j < numbers.length; j++){
+    for(let i = 0; i < userNumArr.length; i++) {
+        let double = false;
+        for(let j = 0; j < numbers.length; j++) {
              if (userNumArr[i] === numbers[j]){
-            guessedNumbers.push(userNumArr[i]);
-            }
+                 guessedNumbers.push(userNumArr[i]);
+            } 
+
+            // if (userNumArr[i] === userNumArr[j]) {
+            //     double = true;
+            // }
+
+            // if (double === false) {
+            //     guessedNumbers.push(userNumArr[i]);
+            // }
+
+            
+            
+    
         }
     }
 }
+
+// se il numero inserito dall'utente si ripete, lo pushamo solo una volta nell'array dei numeri indovinati

@@ -1,0 +1,14 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.num-container {
+    background-color: rgb(175, 185, 182);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
